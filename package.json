@@ -2,6 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "build": "cross-env NODE_ENV=production webpack",
+    "build:start": "http-server dist",
     "preinstall": "npx only-allow pnpm",
     "lint:js": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:ts": "eslint --cache --quiet --config ./packages/eslint-config-typescript/recommended.js --ext .ts --ignore-pattern incorrect.ts packages/eslint-config-typescript/tests/fixtures",
@@ -12,9 +15,25 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "./packages/eslint-config-javascript/index.js",
-      "./packages/eslint-config-jsdoc/index.js"
-    ]
+      "./packages/eslint-config-typescript/recommended.js"
+    ],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/indent": "off",
+      "quote-props": "off",
+      "max-len": "off",
+      "@typescript-eslint/no-extra-parens": "off"
+    }
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.11",
+    "@mui/material": "^5.15.11",
+    "http-server": "^14.1.1",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.24.0",
@@ -22,10 +41,18 @@
     "@babel/preset-env": "7.24.0",
     "@swc/core": "1.4.2",
     "@swc/jest": "0.2.36",
+    "@types/copy-webpack-plugin": "^10.1.0",
     "@types/node": "20.11.24",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
+    "@wemake-services/eslint-config-typescript": "workspace:^",
+    "copy-webpack-plugin": "^11.0.0",
     "core-js": "3.36.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.3",
     "eslint": "8.57.0",
     "eslint-config-standard": "17.1.0",
     "eslint-import-resolver-typescript": "3.6.1",
@@ -44,10 +71,15 @@
     "nx": "18.0.6",
     "postcss": "8.4.35",
     "regenerator-runtime": "0.14.1",
+    "style-loader": "^3.3.1",
     "stylelint": "15.11.0",
+    "ts-loader": "^9.4.2",
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
-    "vue-eslint-parser": "9.4.2"
+    "vue-eslint-parser": "9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   },
   "engines": {
     "node": ">=14.0.0"
