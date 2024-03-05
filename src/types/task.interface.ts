@@ -1,12 +1,14 @@
-interface Task {
+export interface Task {
   id: number
   name: string
   completed: boolean
+  createdAt: Date
 }
+
+export type FilterType = 'current' | 'completed' | 'all'
 
 export interface TasksState {
   tasks: Task[]
-  filter: string
+  filter: FilterType
   searchTerm: string
-  sort: 'current' | 'completed'
 }
