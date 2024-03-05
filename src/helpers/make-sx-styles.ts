@@ -10,8 +10,8 @@ export const makeSxStyles = <
   TPropsType = never,
   TStylesType extends Record<string, SxProps<Theme>> = Record<string, SxProps<Theme>>,
 >(
-  styles: StyleFunction<TPropsType, TStylesType>,
-) => {
+    styles: StyleFunction<TPropsType, TStylesType>,
+  ) => {
   return (props?: TPropsType): TStylesType => {
     const theme = useTheme<Theme>()
     return styles(theme, props as TPropsType)

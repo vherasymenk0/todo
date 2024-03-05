@@ -1,13 +1,13 @@
-import React from 'react'
-import useActions from '../hooks/useActions'
+import { ChangeEventHandler } from 'react'
+import useActionsTs from '../hooks/use-actions.ts'
 import { InputAdornment, TextField } from '@mui/material'
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined'
 
 export const SearchBar = () => {
-  const { setSearchTerm } = useActions()
+  const { setSearchTerm } = useActionsTs()
 
-  const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setSearchTerm(e.target.value || '')
+  const handleSearchChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setSearchTerm(event.target.value || '')
   }
 
   return (

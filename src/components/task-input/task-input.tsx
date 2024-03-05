@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useActions from '../../hooks/useActions'
+import useActionsTs from '../../hooks/use-actions.ts'
 import {
   Alert,
   Button,
@@ -12,7 +12,7 @@ import {
   Typography,
 } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
-import { useStyles } from './TaskInput.styles'
+import { useStyles } from './task-input.styles'
 
 const MAX_LENGTH = 40
 
@@ -22,13 +22,13 @@ export const TaskInput = () => {
   const [showAlert, setShowAlert] = useState(false)
 
   const styles = useStyles()
-  const { addTask } = useActions()
-  const isDisabled = input.length < 1
+  const { addTask } = useActionsTs()
+  const isDisabled = input.length === 0
 
   const handleCloseAlert = () => setShowAlert(false)
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setInput(e.target.value)
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    setInput(event.target.value)
   }
 
   const handleSubmit = () => {
@@ -58,6 +58,7 @@ export const TaskInput = () => {
           <TextField
             id="outlined-multiline-flexible"
             onChange={handleChange}
+            helperText={`Description should be less than ${MAX_LENGTH} characters`}
             multiline
             fullWidth
             maxRows={4}

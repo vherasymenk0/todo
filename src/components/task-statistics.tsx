@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import React from 'react'
-import { useTypedSelector } from '../hooks/useTypedSelector'
+import { useTypedSelector } from '../hooks/use-typed-selector'
 
 export const TaskStatistics = () => {
   const { tasks } = useTypedSelector((state) => state.tasks)

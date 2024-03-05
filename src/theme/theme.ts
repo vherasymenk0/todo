@@ -11,6 +11,7 @@ export const theme = createTheme({
     error: {
       main: '#DC4C64',
     },
+    // eslint-disable-next-line id-blacklist
     info: {
       main: '#54B4D3',
     },

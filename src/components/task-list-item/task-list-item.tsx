@@ -2,16 +2,16 @@ import React from 'react'
 import { IconButton, ListItem, Stack, Tooltip, Typography } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded'
-import { useStyles } from './TaskListItem.styles'
-import useActions from '../../hooks/useActions'
+import { useStyles } from './task-list-item.styles'
+import useActionsTs from '../../hooks/use-actions.ts'
 import { Task } from '../../types/task.interface'
 
 export const TaskListItem = ({ name, id, createdAt, completed }: Task) => {
-  const { toggleTask, deleteTask } = useActions()
+  const { toggleTask, deleteTask } = useActionsTs()
   const styles = useStyles({ isCompleted: completed })
 
-  const handleToggle = (id: number) => {
-    toggleTask({ id })
+  const handleToggle = (taskId: number) => {
+    toggleTask({ id: taskId })
   }
 
   const formatDate = (date: Date) => {
@@ -20,8 +20,7 @@ export const TaskListItem = ({ name, id, createdAt, completed }: Task) => {
       month: 'short',
       year: 'numeric',
     }
-    const formattedDate = date.toLocaleDateString('en-US', options)
-    return formattedDate
+    return date.toLocaleDateString('en-US', options)
   }
 
   return (

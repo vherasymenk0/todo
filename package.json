@@ -17,6 +17,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
+      "./packages/eslint-config-javascript/index.js",
       "./packages/eslint-config-typescript/recommended.js"
     ],
     "rules": {

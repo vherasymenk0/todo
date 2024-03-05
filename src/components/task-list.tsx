@@ -1,7 +1,7 @@
 import React from 'react'
-import { useTypedSelector } from '../hooks/useTypedSelector'
+import { useTypedSelector } from '../hooks/use-typed-selector'
 import { List } from '@mui/material'
-import { TaskListItem } from './TaskListItem'
+import { TaskListItem } from './task-list-item'
 
 export const TaskList = () => {
   const { tasks, filter, searchTerm } = useTypedSelector((state) => state.tasks)

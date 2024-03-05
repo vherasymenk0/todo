@@ -3,14 +3,14 @@ import { makeSxStyles } from '../../helpers'
 interface Props {
   isCompleted: boolean
 }
-export const useStyles = makeSxStyles(({ palette }, { isCompleted }: Props) => ({
+export const useStyles = makeSxStyles((__, { isCompleted }: Props) => ({
   root: {
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',
     borderRadius: 2,
     mb: 2,
-    border: `1px solid rgba(0, 0, 0, 0.23)`,
+    border: '1px solid rgba(0, 0, 0, 0.23)',
   },
   title: {
     textDecoration: isCompleted ? 'line-through' : 'none',

@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box'
-import { SearchBar } from '../components/SearchBar'
-import { TaskFilter } from '../components/TaskFilter'
-import { TaskList } from '../components/TaskList'
 import Container from '@mui/material/Container'
 import * as React from 'react'
 import { Divider, Paper, Typography } from '@mui/material'
-import { TaskStatistics } from '../components/TaskStatistics'
-import { TaskInput } from '../components/TaskInput'
+import { TaskInput } from '../components/task-input'
+import { SearchBar } from '../components/search-bar'
+import { TaskStatistics } from '../components/task-statistics'
+import { TaskFilter } from '../components/task-filter'
+import { TaskList } from '../components/task-list'
 
 export const TodoView = () => {
   return (
@@ -25,7 +25,7 @@ export const TodoView = () => {
           sx={{
             backgroundColor: '#eff1f2',
             borderRadius: 2,
-            p: { xs: 3, md: 5 },
+            padding: { xs: 3, md: 5 },
             mt: 4,
           }}
         >
