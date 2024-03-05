@@ -1,10 +1,12 @@
 {
   "name": "root",
   "private": true,
+  "homepage": "https://vherasymenk0.github.io/todo",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
     "build:start": "http-server dist",
+    "deploy": "gh-pages -d dist",
     "preinstall": "npx only-allow pnpm",
     "lint:js": "eslint --cache --ext .js --ignore-path .gitignore .",
     "lint:ts": "eslint --cache --quiet --config ./packages/eslint-config-typescript/recommended.js --ext .ts --ignore-pattern incorrect.ts packages/eslint-config-typescript/tests/fixtures",
@@ -67,6 +69,7 @@
     "eslint-plugin-sonarjs": "0.24.0",
     "eslint-plugin-unicorn": "49.0.0",
     "eslint-plugin-vue": "9.22.0",
+    "gh-pages": "^6.1.1",
     "jest": "29.7.0",
     "jest-preset-stylelint": "7.0.0",
     "lerna": "6.6.2",

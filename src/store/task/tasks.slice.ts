@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { TasksState } from '../../types/task.interface'
+import { FilterType, TasksState } from '../../types/task.interface'
 
 const initialState: TasksState = {
   tasks: [],
   filter: 'all',
   searchTerm: '',
-  sort: 'current',
 }
 
 const tasksSlice = createSlice({
@@ -17,6 +16,7 @@ const tasksSlice = createSlice({
         id: Date.now(),
         name: action.payload.name,
         completed: false,
+        createdAt: new Date(),
       }
       state.tasks.push(newTask)
     },
@@ -26,14 +26,14 @@ const tasksSlice = createSlice({
         task.completed = !task.completed
       }
     },
-    setFilter: (state, action: PayloadAction<string>) => {
+    setFilter: (state, action: PayloadAction<FilterType>) => {
       state.filter = action.payload
     },
     setSearchTerm: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload
     },
-    setSort: (state, action: PayloadAction<'current' | 'completed'>) => {
-      state.sort = action.payload
+    deleteTask: (state, action: PayloadAction<{ id: number }>) => {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload.id)
     },
   },
 })
